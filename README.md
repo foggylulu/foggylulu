@@ -12,7 +12,7 @@ engine reported a plausible wrong value and something had to refuse it.
 |---|---|
 | [**mac-ai-activity**](https://github.com/foggylulu/mac-ai-activity) | Live instrument panel for local inference. Joules per token, per-slot llama.cpp telemetry, SMC die temps and fans. Observe-only, native SwiftUI, no dependencies. |
 | [**llmctl**](https://github.com/foggylulu/llmctl) | Which local LLMs are holding your Mac's RAM, and one command to get it back — including the idle server processes still pinning weights with `mlock`. |
-| [**qwen-control-mac**](https://github.com/foggylulu/qwen-control-mac) | Turn a big local model on and off from your phone, from anywhere, over Tailscale. |
+| [**wake-on-llm**](https://github.com/foggylulu/wake-on-llm) | Turn a big local model on and off from your phone, from anywhere, over Tailscale. The last-resort path is a literal Wake-on-LAN packet. |
 
 A few things they measured that aren't written down elsewhere:
 
