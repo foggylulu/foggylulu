@@ -18,30 +18,3 @@ model or some API reported a plausible wrong value and something had to refuse i
 
 Solvr came out of my own tutoring practice — I have taught calculus and statistics
 since 2022 and kept rebuilding the same lesson plans by hand.
-
-A few things these projects measured that are not written down elsewhere:
-
-- **`"\frac{d}{dx}"` is valid JSON.** `\f` is a form feed, so a strict parse
-  succeeds and silently returns mangled maths with no error raised. Any pipeline
-  that repairs model output only *after* a failed parse is corrupting every
-  fraction it is given.
-- **`n_decoded` is not reset at request start.** Through the whole of prefill it
-  holds the previous request's count — long enough to produce a confident,
-  entirely fictional token rate.
-- **A parked CPU cluster reads colder than the room.** 113 °C during a CPU burn,
-  23 °C sixty seconds later while the GPU sat at 82 °C. A headline labelled "CPU
-  temperature" therefore *falls* as the machine gets hotter.
-- **A 46 GB model in the page cache is not memory pressure.** Count it as used
-  and a machine with 40 GB free looks full.
-- **Asking a router a question can cost 3 GB.** One `GET /props?model=…` against
-  an idle llama.cpp router loads the model. An observer that can do that is not
-  an observer.
-- **A fine-tune can learn the shape at the expense of the content.** A LoRA on a
-  4B improved schema compliance and cost nineteen points of maths correctness,
-  because it learned to emit one compliant step instead of working the problem.
-  Schema compliance is blind to that — a one-step answer that decodes cleanly
-  scores 100%.
-- **Removing one flag was worth 30x.** `--enable-memory-reclaimer` against a
-  model sitting at 99.7% of the GPU budget meant "evict" was always true, so
-  every request paid a reload: warm time-to-first-byte 22 s → 0.7 s once it was
-  gone.
