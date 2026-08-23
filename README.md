@@ -3,7 +3,7 @@
 I work at the intersection of **AI, mathematics and building things that ship** —
 mostly instruments and tools for language models running on hardware I control.
 Northeastern '28, BS Business Administration and Mathematics. Looking for an
-AI/ML co-op from September 2026.
+AI/ML co-op from January 2027.
 
 The through-line in everything below is one rule: **a measurement is a number;
 the absence of one is `—`.** Most of the code in these repos exists because some
