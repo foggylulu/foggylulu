@@ -14,12 +14,10 @@ model or some API reported a plausible wrong value and something had to refuse i
 | [**mac-ai-activity**](https://github.com/foggylulu/mac-ai-activity) | Live instrument panel for local AI inference. Joules per token, per-slot llama.cpp telemetry, SMC die temps and fans. Observe-only, native SwiftUI, no dependencies. |
 | [**llmctl**](https://github.com/foggylulu/llmctl) | Which local models are holding your Mac's RAM, and one command to get it back — including the idle server processes still pinning weights with `mlock`. |
 | [**wake-on-llm**](https://github.com/foggylulu/wake-on-llm) | Turn a big local model on and off from your phone, from anywhere, over Tailscale. The last-resort path is a literal Wake-on-LAN packet. |
+| [**solvr-ai**](https://github.com/foggylulu/solvr-ai) | Native iOS and Mac Catalyst maths tutor: photograph a problem, get the working and the lesson behind it. One interface over a hosted API, a local server, or Apple's on-device model. Built and working, not released. |
 
-I also build **Solvr.ai**, a native iOS and macOS app that turns a photographed
-maths problem into step-by-step working and a lesson plan. It came out of my own
-tutoring practice — I have taught calculus and statistics since 2022 and kept
-rebuilding the same lesson plans by hand. Built and working, not released; the
-source is opening shortly.
+Solvr came out of my own tutoring practice — I have taught calculus and statistics
+since 2022 and kept rebuilding the same lesson plans by hand.
 
 A few things these projects measured that are not written down elsewhere:
 
@@ -38,6 +36,11 @@ A few things these projects measured that are not written down elsewhere:
 - **Asking a router a question can cost 3 GB.** One `GET /props?model=…` against
   an idle llama.cpp router loads the model. An observer that can do that is not
   an observer.
+- **A fine-tune can learn the shape at the expense of the content.** A LoRA on a
+  4B improved schema compliance and cost nineteen points of maths correctness,
+  because it learned to emit one compliant step instead of working the problem.
+  Schema compliance is blind to that — a one-step answer that decodes cleanly
+  scores 100%.
 - **Removing one flag was worth 30x.** `--enable-memory-reclaimer` against a
   model sitting at 99.7% of the GPU budget meant "evict" was always true, so
   every request paid a reload: warm time-to-first-byte 22 s → 0.7 s once it was
